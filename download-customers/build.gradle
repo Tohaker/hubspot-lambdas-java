@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'net.ltcuk.lambda.customers'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation (
+        'com.amazonaws:aws-lambda-java-core:1.2.0',
+        'com.amazonaws:aws-lambda-java-events:2.2.6'
+    )
+    implementation 'org.apache.commons:commons-configuration2:2.4'
+    implementation 'commons-net:commons-net:3.6'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+    testImplementation 'org.mockftpserver:MockFtpServer:2.7.1'
+}
