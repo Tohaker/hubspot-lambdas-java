@@ -1,16 +1,22 @@
 plugins {
     id 'java'
+    id 'io.freefair.lombok' version '4.1.0'
 }
 
-group 'net.ltcuk.lambda'
-version '1.0-SNAPSHOT'
+allprojects {
+    group 'net.ltcuk.lambda'
+    version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+    apply plugin: 'java'
+    apply plugin: 'io.freefair.lombok'
 
-repositories {
-    mavenCentral()
-}
+    sourceCompatibility = 1.8
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    repositories {
+        mavenCentral()
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }

@@ -1,5 +1,7 @@
 package net.ltcuk.lambda.customers;
 
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.net.PrintCommandListener;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
@@ -7,6 +9,8 @@ import org.apache.commons.net.ftp.FTPReply;
 
 import java.io.*;
 
+@Slf4j
+@Getter
 public class FTPDownloader {
 
     private String username, password;
@@ -26,6 +30,7 @@ public class FTPDownloader {
         ftpClient.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
 
         try {
+            log.info(String.format("Opening connection to FTP Server: %s", this.server));
             ftpClient.connect(server, port);
             int reply = ftpClient.getReplyCode();
             if (!FTPReply.isPositiveCompletion(reply)) {
