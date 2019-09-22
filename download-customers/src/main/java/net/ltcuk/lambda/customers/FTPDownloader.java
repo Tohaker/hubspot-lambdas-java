@@ -35,12 +35,13 @@ public class FTPDownloader {
             int reply = ftpClient.getReplyCode();
             if (!FTPReply.isPositiveCompletion(reply)) {
                 ftpClient.disconnect();
+                log.info(String.format("Could not connect to FTP Server. Reply Code %d", reply));
                 return false;
             }
-
+            log.info(String.format("Connected to FTP Server. Reply Code %d", reply));
             return ftpClient.login(username, password);
         } catch (IOException ie) {
-            ie.printStackTrace();
+            log.debug(ie.toString());
             return false;
         }
     }
