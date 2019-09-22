@@ -23,4 +23,5 @@ allprojects {
     }
 }
 
-defaultTasks 'clean build test jacocoTestReport'
+defaultTasks 'clean', 'build', 'test', 'jacocoTestReport'
+
