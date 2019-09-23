@@ -1,8 +1,14 @@
+repositories {
+    maven {
+        url 'https://s3-us-west-2.amazonaws.com/dynamodb-local/release'
+    }
+}
+
 dependencies {
-    implementation (
-        'com.amazonaws:aws-lambda-java-core:1.2.0',
-        'com.amazonaws:aws-lambda-java-events:2.2.6'
-    )
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.0'
+    implementation 'com.amazonaws:aws-lambda-java-events:2.2.6'
+    implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.11.636'
+
     implementation 'org.apache.commons:commons-configuration2:2.4'
     implementation 'commons-net:commons-net:3.6'
     implementation 'org.slf4j:slf4j-api:1.7.28'
@@ -11,4 +17,5 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
     testImplementation 'org.mockftpserver:MockFtpServer:2.7.1'
+    testImplementation 'com.amazonaws:DynamoDBLocal:1.11'
 }
